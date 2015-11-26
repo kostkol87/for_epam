@@ -1,19 +1,27 @@
 package JAVA.SE.HW01.t05;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TwoDimArray {
-    private int[][] array;
+    private int size;
+    public int[][] buid_array(){
 
-    public int[][] buid_array() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Укажите размер матрицы:");
-        int size = scanner.nextInt();
-        array = new int[size][size];
-        return array;
+        this.size = scanner.nextInt();
+        if (size < 0){
+            try {
+                throw new IOException();
+            } catch (IOException e) {
+                System.out.println("матрица не может иметь отрицательный размер!");
+                buid_array();
+            }
+        }
+        return  new int[size][size];
     }
 
-    public int[][] cross_it(int[][] array) {
+    public int[][] crossIt(int[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 array[i][i] = 1;
@@ -35,7 +43,7 @@ public class TwoDimArray {
     public static void main(String[] args) {
         TwoDimArray tda = new TwoDimArray();
         int[][] ints = tda.buid_array();
-        ints = tda.cross_it(ints);
+        ints = tda.crossIt(ints);
         tda.printIt(ints);
 
     }
