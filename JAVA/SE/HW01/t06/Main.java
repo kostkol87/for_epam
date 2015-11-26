@@ -5,12 +5,14 @@ public class Main {
         Notepad notepad = new Notepad();
 
         for (int i = 0; i < 11; i++) {
-            notepad.addNote(new Note());
+            notepad.addNote();
         }
 
         notepad.changeNote(5);
 
         notepad.rmNote(1);
+
+        notepad.rmNote(8);
 
         notepad.showNotes();
     }

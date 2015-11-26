@@ -9,7 +9,7 @@ public class SingleDimArray {
     public double[] buildArray() {
 
         Scanner scan = new Scanner(System.in);
-        System.out.print("Введите n: ");
+        System.out.print("Enter n: ");
         int n = scan.nextInt();
         array = new double[n * 2];
 
@@ -22,7 +22,7 @@ public class SingleDimArray {
 
     public double max(double[] filled_array) {
         double maxValue = 0;
-        double current_value = 0;
+        double current_value;
         for (int i = 0; i < filled_array.length; i++) {
             current_value = filled_array[i] + filled_array[filled_array.length - 1 - i];
             if (i == 0) {

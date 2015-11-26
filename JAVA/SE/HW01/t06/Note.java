@@ -7,20 +7,23 @@ public class Note {
     private int id;
     private Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Конструктор создает новую запись в блокноте при созданиие объекта
+     **/
     public Note() {
         this.id = Notepad.notesCounter;
-        Notepad.notesCounter += 1;
-        System.out.println("Введите текст записи № " + this.id + ": ");
+        Notepad.notesCounter++;
+        System.out.println("Enter text of new note № " + this.id + ": ");
         this.note = scanner.nextLine();
 
     }
 
     public String getNote() {
-        return note;
+        return "Note " + this.id + "#: " + note;
     }
 
     public void setNote() {
-        System.out.println("Вы меняете текст записи №" + this.id + ", введите новый текст записи: ");
+        System.out.println("You're changing note №" + this.id + ", enter new text of note: ");
         this.note = scanner.nextLine();
     }
 }

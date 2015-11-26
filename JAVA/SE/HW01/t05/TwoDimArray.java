@@ -8,13 +8,13 @@ public class TwoDimArray {
     public int[][] buid_array(){
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Укажите размер матрицы:");
+        System.out.print("Enter matrix size: ");
         this.size = scanner.nextInt();
         if (size < 0){
             try {
                 throw new IOException();
             } catch (IOException e) {
-                System.out.println("матрица не может иметь отрицательный размер!");
+                System.out.println("Matrix can't have a negative size");
                 buid_array();
             }
         }
