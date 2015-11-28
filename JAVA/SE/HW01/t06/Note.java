@@ -11,10 +11,10 @@ public class Note {
      * Конструктор создает новую запись в блокноте при созданиие объекта
      **/
     public Note() {
-        this.id = Notepad.notesCounter;
+        id = Notepad.notesCounter;
         Notepad.notesCounter++;
         System.out.println("Enter text of new note № " + this.id + ": ");
-        this.note = scanner.nextLine();
+        note = scanner.nextLine();
 
     }
 
@@ -24,6 +24,6 @@ public class Note {
 
     public void setNote() {
         System.out.println("You're changing note №" + this.id + ", enter new text of note: ");
-        this.note = scanner.nextLine();
+        note = scanner.nextLine();
     }
 }
