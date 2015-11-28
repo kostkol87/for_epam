@@ -13,7 +13,7 @@ public class Notepad {
      */
     public void addNote() {
         if (notes[notes.length - 1] != null) {
-            notes = Arrays.copyOf(this.notes, notes.length * 2);
+            notes = Arrays.copyOf(notes, notes.length * 2);
         }
         notes[Notepad.notesCounter] = new Note();
     }

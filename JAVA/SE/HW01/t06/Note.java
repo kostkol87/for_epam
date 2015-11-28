@@ -13,17 +13,16 @@ public class Note {
     public Note() {
         id = Notepad.notesCounter;
         Notepad.notesCounter++;
-        System.out.println("Enter text of new note № " + this.id + ": ");
+        System.out.println("Enter text of new note № " + id + ": ");
         note = scanner.nextLine();
-
     }
 
     public String getNote() {
-        return "Note " + this.id + "#: " + note;
+        return "Note " + id + "#: " + note;
     }
 
     public void setNote() {
-        System.out.println("You're changing note №" + this.id + ", enter new text of note: ");
+        System.out.println("You're changing note №" + id + ", enter new text of note: ");
         note = scanner.nextLine();
     }
 }
