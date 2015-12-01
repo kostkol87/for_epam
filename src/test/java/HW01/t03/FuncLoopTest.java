@@ -10,24 +10,12 @@ public class FuncLoopTest {
      */
     @Test
     public void testBasic() throws Exception {
-        if (fl.foo(0,1,1).length != 2){
-            Assert.fail();
-        }
-        if(fl.foo(0, 5, 1).length != 6){
-            Assert.fail();
-        }
-        if (fl.foo(10, 100, 2).length != 46){
-            Assert.fail();
-        }
-        if (fl.foo(-100, -50, 2).length != 26){
-            Assert.fail();
-        }
-        if (fl.foo(-100, -50, 0).length != 0){
-            Assert.fail();
-        }
-        if (fl.foo(0,0,0).length != 0){
-            Assert.fail();
-        }
+        Assert.assertEquals(2,fl.foo(0,1,1).length);
+        Assert.assertEquals(6, fl.foo(0, 5, 1).length);
+        Assert.assertEquals(46,fl.foo(10, 100, 2).length);
+        Assert.assertEquals(26, fl.foo(-100, -50, 2).length);
+        Assert.assertEquals(0, fl.foo(-100, -50, 0).length);
+        Assert.assertEquals(0,fl.foo(0,0,0).length);
     }
 
     @Test
