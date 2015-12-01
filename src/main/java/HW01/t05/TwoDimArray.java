@@ -9,7 +9,7 @@ public class TwoDimArray {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter matrix size: ");
-        this.size = scanner.nextInt();
+        size = scanner.nextInt();
         if (size < 0){
             try {
                 throw new IOException();
