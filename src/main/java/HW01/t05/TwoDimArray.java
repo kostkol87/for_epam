@@ -1,4 +1,4 @@
-package JAVA.SE.HW01.t05;
+package HW01.t05;
 
 import java.io.IOException;
 import java.util.Scanner;

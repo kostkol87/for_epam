@@ -1,4 +1,4 @@
-package JAVA.SE.HW01.t03;
+package HW01.t03;
 
 public class FuncLoop {
     //    F(x) = tg(2x - 3)

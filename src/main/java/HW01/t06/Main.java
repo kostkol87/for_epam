@@ -1,4 +1,4 @@
-package JAVA.SE.HW01.t06;
+package HW01.t06;
 
 public class Main {
     public static void main(String[] args) {

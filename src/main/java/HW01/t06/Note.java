@@ -1,4 +1,4 @@
-package JAVA.SE.HW01.t06;
+package HW01.t06;
 
 import java.util.Scanner;
 

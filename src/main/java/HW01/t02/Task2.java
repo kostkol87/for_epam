@@ -1,4 +1,4 @@
-package JAVA.SE.HW01.t02;
+package HW01.t02;
 
 public class Task2 {
     static final double EPS = 0.000001;
