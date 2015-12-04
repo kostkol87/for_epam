@@ -32,7 +32,7 @@ public class FuncLoop {
         System.out.println();
     }
     private void drawEOL(int currLen){
-        for (int i = 0; i <len + 6 - currLen; i++) {
+        for (int i = 0; i <len + 5 - currLen; i++) {
             System.out.print(" ");
         }
         System.out.println("|");
