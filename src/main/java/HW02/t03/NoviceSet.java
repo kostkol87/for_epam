@@ -1,24 +1,30 @@
 package HW02.t03;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class NoviceSet {
-    public HashSet<Stationery> getNoviceSet(){
-        HashSet<Stationery> noviceSet = new HashSet<Stationery>();
+    public ArrayList<Stationery> getNoviceSet(){
+        ArrayList<Stationery> noviceSet = new ArrayList<Stationery>();
+        noviceSet.add(new Pen("Parker", 100.0));
         noviceSet.add(new Pen("Parker", 59.9));
-        noviceSet.add(new Pen("Parker", 59.9));
-        noviceSet.add(new Pencil("", 20));
-        noviceSet.add(new Pencil("", 20));
-        noviceSet.add(new Pencil("", 20));
-        noviceSet.add(new Pencil("", 20));
-        noviceSet.add(new Rubber("", 5));
-        noviceSet.add(new Rubber("", 5));
-        noviceSet.add(new Corrector("", 100));
-        noviceSet.add(new Marker("",15));
-        noviceSet.add(new Paper("", 300));
-        noviceSet.add(new Sticker("", 35));
-        noviceSet.add(new Stapler("", 231.5));
-        noviceSet.add(new Clip("", 10));
+        noviceSet.add(new Pencil("H", 20));
+        noviceSet.add(new Pencil("HB", 20));
+        noviceSet.add(new Pencil("3B*", 20));
+        noviceSet.add(new Pencil("7B*", 20));
+        noviceSet.add(new Rubber("LYRA", 5));
+        noviceSet.add(new Rubber("LYRA", 5));
+        noviceSet.add(new Corrector("BiC", 100));
+        noviceSet.add(new Marker("MOLOTOW",15));
+        noviceSet.add(new Paper("Bereg", 300));
+        noviceSet.add(new Sticker("DeliMemoPaper", 35));
+        noviceSet.add(new Stapler("Swingline", 231.5));
+        noviceSet.add(new Clip("SteelClip", 10));
         return noviceSet;
+    }
+
+    public void printNoviceSet(ArrayList<Stationery> noviceSet){
+        for (Stationery element : noviceSet){
+            System.out.println(element);
+        }
     }
 }

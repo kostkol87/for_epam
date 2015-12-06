@@ -2,14 +2,13 @@ package HW02.t03;
 
 import org.junit.Test;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class StationeryTest {
     @Test
     public void testStationery() throws Exception {
-        HashSet<Stationery> noviceSet = new NoviceSet().getNoviceSet();
-        for (Stationery s : noviceSet){
-            System.out.println(s);
-        }
+        NoviceSet ns = new NoviceSet();
+        ArrayList<Stationery> noviceSet = ns.getNoviceSet();
+        ns.printNoviceSet(noviceSet);
     }
 }
