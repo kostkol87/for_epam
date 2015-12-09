@@ -21,10 +21,4 @@ public class NoviceSet {
         noviceSet.add(new Clip("SteelClip", 10));
         return noviceSet;
     }
-
-    public void printNoviceSet(ArrayList<Stationery> noviceSet){
-        for (Stationery element : noviceSet){
-            System.out.println(element);
-        }
-    }
 }
