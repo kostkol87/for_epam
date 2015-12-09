@@ -5,12 +5,13 @@ import HW02.t03.Stationery;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CompareTest {
     @Test
     public void testCompare() throws Exception {
         NoviceSet noviceSetObj = new NoviceSet();
-        ArrayList<Stationery> noviceSet = noviceSetObj.getNoviceSet();
+        List<Stationery> noviceSet = noviceSetObj.getNoviceSet();
 
         System.out.println("Unsorted:");
         noviceSetObj.printNoviceSet(noviceSet);

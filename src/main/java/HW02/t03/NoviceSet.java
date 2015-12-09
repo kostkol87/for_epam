@@ -1,9 +1,10 @@
 package HW02.t03;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NoviceSet {
-    public ArrayList<Stationery> getNoviceSet() {
+    public List<Stationery> getNoviceSet() {
         ArrayList<Stationery> noviceSet = new ArrayList<Stationery>();
         noviceSet.add(new Pen("Parker", 100.0));
         noviceSet.add(new Pen("Parker", 59.9));
@@ -22,7 +23,7 @@ public class NoviceSet {
         return noviceSet;
     }
 
-    public void printNoviceSet(ArrayList<Stationery> noviceSet) {
+    public void printNoviceSet(List<Stationery> noviceSet) {
         for (Stationery element : noviceSet) {
             System.out.println(element);
         }
