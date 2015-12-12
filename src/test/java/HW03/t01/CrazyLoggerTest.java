@@ -1,13 +1,9 @@
-package HW03;
+package HW03.t01;
 
+import HW03.t01.CrazyLogger;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-/**
- * Created by Acer s3 on 11.12.2015.
- */
 public class CrazyLoggerTest {
 
     CrazyLogger clLogger = new CrazyLogger();

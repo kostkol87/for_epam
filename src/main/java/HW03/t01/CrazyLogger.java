@@ -1,4 +1,4 @@
-package HW03;
+package HW03.t01;
 
 import java.util.Calendar;
 import java.util.Formatter;
@@ -24,7 +24,7 @@ public class CrazyLogger {
         String[] logArr = getLog().toString().split("\r\n");
 
         for (String logStr: logArr){
-            if (logStr.indexOf(msg.toString()) >= 0){
+            if (logStr.contains(msg.toString())){
                 System.out.println(logStr);
             }
         }
