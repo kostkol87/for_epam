@@ -4,6 +4,7 @@ import HW02.t03.Stationery;
 import java.util.Comparator;
 
 public class PriceComparator implements Comparator{
+
     @Override
     public int compare(Object o1, Object o2) {
 
