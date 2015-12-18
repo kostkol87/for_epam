@@ -13,18 +13,22 @@ public class RegExp {
 
     public String collectFromHTML(String file) throws IOException, BadLocationException {
         StringBuilder html = new StringBuilder();
-        BufferedReader in = new BufferedReader(new FileReader(file));
-        String tmp;
-        while ((tmp = in.readLine()) != null) {
-            html.append(tmp.trim());
+
+        try(BufferedReader in = new BufferedReader(new FileReader(file))) {
+            String tmp;
+            while ((tmp = in.readLine()) != null) {
+                html.append(tmp.trim());
+            }
+            return html.toString();
         }
-        return html.toString();
     }
 
     public boolean isConseq(String html) {
         Pattern pattern = Pattern.compile("(\\([р|Р]ис.|[р|Р]исунке)\\s(\\d+)\\)?");
         Matcher matcher = pattern.matcher(html);
+
         int tmp = 0;
+
         while (matcher.find()) {
             int i = Integer.valueOf(matcher.group(2));
             if (tmp < i) {
@@ -39,16 +43,17 @@ public class RegExp {
     public String markSentences(String html, String output) throws IOException, BadLocationException {
         Pattern sentence = Pattern.compile("(?![^\\.]\\s+|\\s+<div>|\\s+<p>)(?![^\\.]\\s+[\\(\\\"`'])([\\\"\\`\\']?[А-ЯA-Z][^\\.\\!\\?]*((\\([р|Р]ис\\.|[р|Р]исунке)\\s(\\d+)\\)?)+(.)*?)(?=[\\.\\!\\?](\\s|\\Z|</div>|</p>))");
         Matcher matcherS = sentence.matcher(html);
+
         ArrayList<String> sentences = new ArrayList<>();
+
         while (matcherS.find()) {
             sentences.add(matcherS.group());
         }
-        BufferedWriter writer = new BufferedWriter(new FileWriter(output));
-        for (String str : sentences) {
-            html = html.replace(str, "<font size=\"5\" color=\"red\" face=\"Arial\">" + str + "</font>");
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(output))) {
+            for (String str : sentences) {
+                html = html.replace(str, "<font size=\"5\" color=\"red\" face=\"Arial\">" + str + "</font>");
+            }
         }
-        writer.write(html);
-        writer.close();
         return sentences.size() + " sentences was marked";
     }
 }
