@@ -14,7 +14,7 @@ public class CreateUtf8File  {
     }
 
     public static void main(String[] args) throws IOException {
-        String path = System.getProperty("user.dir") + "/src/main/resources/" + "utf8file";
+        String path = System.getProperty("user.dir") + "/src/main/resources/" + "utf8file.test";
         CreateUtf8File.fileCreator(path, "Default logger\n" +
                 "\n" +
                 " то в проекте не использует log4j? ј можете сходу назвать библиотеки, которые тоже обход€тс€ без него? ƒумаю это трудные вопросы. ѕонимаю, java не может подстраиватьс€ под каждую конкретную задачу, но добавили же стандартный Logger, так почему за 10 лет существовани€ log4j, java так и не вз€ла лучшее из него? ѕредставьте на сколько бы уменьшились все приложени€, особенно сложные, где в конечной сборке может оказатьс€ несколько разных версий логера.\n" +
