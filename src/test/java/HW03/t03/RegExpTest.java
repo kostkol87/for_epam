@@ -25,7 +25,7 @@ public class RegExpTest {
     @Test
     public void testMarkSentences() throws Exception {
         RegExp regExp = new RegExp();
-        regExp.markSentences(regExp.collectFromHTML(regExp.FILE_PATH), regExp.OUTPUT);
+        System.out.println(regExp.markSentences(regExp.collectFromHTML(regExp.FILE_PATH), regExp.OUTPUT));
 
         BufferedReader in = new BufferedReader(new FileReader(regExp.OUTPUT));
         StringBuilder html = new StringBuilder();
