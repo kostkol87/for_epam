@@ -14,22 +14,22 @@ import java.util.regex.Pattern;
  */
 public class BytesJavaKeyWords {
 
-    public StringBuilder readFile(String path) throws IOException {
+    public String readFile(String path) throws IOException {
 
-        FileInputStream fis = new FileInputStream(path);
-        StringBuilder fileContent = new StringBuilder();
+        try (FileInputStream fis = new FileInputStream(path)){
+            StringBuilder fileContent = new StringBuilder();
 
-        byte[] buff = new byte[64];
+            byte[] buff = new byte[64];
 
-        while ((fis.read(buff)) != -1) {
-            fileContent.append(new String(buff, "cp1251"));
+            while ((fis.read(buff)) != -1) {
+                fileContent.append(new String(buff, "cp1251"));
+            }
+            fis.close();
+            return fileContent.toString();
         }
-        fis.close();
-        return fileContent;
     }
 
-    public Map<String, Integer> searchAndCount(String fileContent) {
-
+    public static Map<String, Integer> searchAndCount(String fileContent) {
         Pattern pattern = Pattern.compile("abstract|assert|boolean|break|byte|" +
                 "case|catch|char|class|const|continue|default|do|double|else|" +
                 "enum|extends|final|finally|float|for|goto|if|implements|import|" +
