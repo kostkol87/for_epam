@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     FilmsCollection films;
-
+    Scanner scanner = new Scanner(System.in);
     public void main_loop() throws IOException, ClassNotFoundException {
         if (!new File(Film.DEFAULT_PATH).exists()){
             films = new FilmsCollection();
@@ -14,25 +14,23 @@ public class Main {
             films = Film.restore();
         }
 
-        System.out.println("1 - Отобразить всю коллекцию \r\n 2 - Добавить новый фильм \r\n 3 - удалить фильм \r\n 0 - выхлд");
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("1 - Отобразить всю коллекцию \n2 - Добавить новый фильм \n3 - удалить фильм \n0 - выхлд");
+
         int choice = scanner.nextInt();
         switch (choice){
             case 1:{
                 for (Film film:films) System.out.println(film);
                 break;
             }case 2:{
+
                 System.out.println("Введите название фильма");
                 String title = scanner.nextLine();
-                if(title != ""){
-                    System.out.println("Введите актеров через запятую");
-                    String[] actors = scanner.nextLine().toString().split(",");
-                    if (actors.length != 0){
-                        films.add(new Film(title, actors));
-                        Film.persist(films);
-                    }
 
-                }
+                System.out.println("Введите актеров через запятую");
+                String[] actors = scanner.nextLine().toString().split(",");
+
+                films.add(new Film(title, actors));
+                Film.persist(films);
 
                 break;
             }case 3:{
@@ -58,6 +56,5 @@ public class Main {
         while (true){
             m.main_loop();
         }
-
     }
 }

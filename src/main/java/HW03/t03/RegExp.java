@@ -41,7 +41,10 @@ public class RegExp {
     }
 
     public String markSentences(String html, String output) throws IOException, BadLocationException {
-        Pattern sentence = Pattern.compile("(?![^\\.]\\s+|\\s+<div>|\\s+<p>)(?![^\\.]\\s+[\\(\\\"`'])([\\\"\\`\\']?[А-ЯA-Z][^\\.\\!\\?]*((\\([р|Р]ис\\.|[р|Р]исунке)\\s(\\d+)\\)?)+(.)*?)(?=[\\.\\!\\?](\\s|\\Z|</div>|</p>))");
+        Pattern sentence = Pattern.compile("" +
+                "(?![^\\.]\\s+|\\s+<div>|\\s+<p>)(?![^\\.]\\s+[\\(\\\"`'])([\\\"\\`\\']?[А-ЯA-Z]" +
+                "[^\\.\\!\\?]*((\\([р|Р]ис\\.|[р|Р]исунке)\\s?(\\d+)\\)?)+(.)*?)(?=[\\.\\!\\?](\\s|\\Z|</div>|</p>))");
+
         Matcher matcherS = sentence.matcher(html);
 
         ArrayList<String> sentences = new ArrayList<>();
