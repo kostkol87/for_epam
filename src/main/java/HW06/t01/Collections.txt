@@ -1,0 +1,20 @@
+                |               |     Random      |      Key-Value     |     Allows      |    Allows Null    |     Thread     |      Blocking
+                |   Ordering    |     Access      |        Pairs       |    Duplicates   |      Values       |     Safe       |      Operations
+________________|_______________|_________________|____________________|_________________|___________________|________________|____________________
+ArrayList       |   insertion   |    by indx      |       No           |       Yes       |      Yes          |        No      |         No
+                |               |                 |                    |                 |                   |                |
+LinkedList      |   insertion   |    by indx      |       No           |       Yes       |      Yes          |        No      |         No
+                |               |                 |                    |                 |                   |                |
+Vector          |   insertion   |    by indx      |       No           |       Yes       |      Yes          |        Yes     |         No
+                |               |                 |                    |                 |                   |                |
+HashSet         |   No          |    No           |       No           |       No        |      Yes          |        No      |         No
+                |               |                 |                    |                 |                   |                |
+LinkedHashSet   |   insertion   |    No           |       No           |       No        |      Yes          |        No      |         No
+                |               |                 |                    |                 |                   |                |
+TreeSet         |   Yes         |    No           |       No           |       No        |      No           |        No      |         No
+                |               |                 |                    |                 |                   |                |
+HashMap         |   No          |    No           |       Yes          |       No        |      Yes          |        No      |         No
+                |               |                 |                    |                 |                   |                |
+LinkedHashMap   |   insertion   |    No           |       Yes          |       No        |      Yes          |        No      |         No
+                |               |                 |                    |                 |                   |                |
+HashTable       |   No          |    No           |       Yes          |       No        |      No           |        Yes     |         No
