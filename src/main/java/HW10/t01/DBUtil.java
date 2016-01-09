@@ -52,7 +52,7 @@ public class DBUtil {
             statement.execute("INSERT INTO books ('title', 'author') VALUES ('clean code', 'Robert C. Martin');");
             log.debug("table books was created and were append 8 books");
         } catch (SQLException e) {
-            throw new RuntimeException("SQLException");
+            throw new RuntimeException(e);
         }
     }
 
@@ -80,7 +80,7 @@ public class DBUtil {
             }
             return result;
         } catch (SQLException e) {
-            throw new RuntimeException("SQLException");
+            throw new RuntimeException(e);
         }
     }
 
@@ -100,7 +100,7 @@ public class DBUtil {
             ps.executeUpdate();
             log.debug(("now id:" + id + " is " + title + " " + author));
         } catch (SQLException e) {
-            throw new RuntimeException("SQLException");
+            throw new RuntimeException(e);
         }
     }
 
@@ -118,7 +118,7 @@ public class DBUtil {
             String result = rs.getString("id") + " " + rs.getString("title") + " " + rs.getString("author");
             return result;
         } catch (SQLException e) {
-            throw new RuntimeException("SQLException");
+            throw new RuntimeException(e);
         }
     }
 
@@ -136,7 +136,7 @@ public class DBUtil {
             ps.setString(2, author);
             ps.execute();
         } catch (SQLException e) {
-            throw new RuntimeException("SQLException");
+            throw new RuntimeException(e);
         }
     }
 
@@ -148,7 +148,7 @@ public class DBUtil {
         try (Statement st = connection.createStatement()) {
             st.execute(String.format("DROP TABLE IF EXISTS %s", table));
         } catch (SQLException e) {
-            throw new RuntimeException("SQLException");
+            throw new RuntimeException(e);
         }
     }
 }
