@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="www.epam.tc.com/books"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation ="books.xsd">
+    <book>
+        <isbn10>0380789663</isbn10>
+        <isbn13>9780380789665</isbn13>
+        <author>Bradbury, Ray</author>
+        <title>Green Shadows, White Whale</title>
+    </book>
+    <book>
+        <isbn10>0586043608</isbn10>
+        <isbn13>9780586043608</isbn13>
+        <author>Bradbury, Ray</author>
+        <title>Dandelion Wine</title>
+    </book>
+    <book>
+        <isbn10>0552082767</isbn10>
+        <isbn13>9780552082761</isbn13>
+        <author>Bradbury, Ray</author>
+        <title>Dandelion Wine</title>
+    </book>
+    <book>
+        <isbn10>0061131547</isbn10>
+        <isbn13>9780061131547</isbn13>
+        <author>Bradbury, Ray</author>
+        <title>Farewell Summer</title>
+    </book>
+    <book>
+        <isbn10>1451673310</isbn10>
+        <isbn13>978-1451673319</isbn13>
+        <author>Bradbury, Ray</author>
+        <title>Fahrenheit 451</title>
+    </book>
+</library>
