@@ -15,13 +15,31 @@ import static LOGGER.L4jLogger.log;
  */
 
 public class DBUtil {
-    public Connection getCon() throws ClassNotFoundException, SQLException {
-        Class.forName("org.sqlite.JDBC");
-        Connection connection = DriverManager.getConnection("jdbc:sqlite:src\\main\\java\\HW07\\t01\\sqlite.db");
+    /**
+     * getting connection via JDBC
+     *
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public Connection getCon() {
+        Connection connection = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:src\\main\\java\\HW07\\t01\\sqlite.db");
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return connection;
     }
 
-    public void createTestTable(Connection connection) throws SQLException {
+
+    /**
+     * Methods creates table in case if it is not exists
+     *
+     * @param connection
+     */
+    public void createTestTable(Connection connection) {
         try (Statement statement = connection.createStatement()) {
             statement.execute("CREATE TABLE if not exists 'books' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'title' text, 'author' text);");
             statement.execute("INSERT INTO books ('title', 'author') VALUES ('451 degrees fahrenheit', 'Ray bradbury');");
@@ -33,10 +51,18 @@ public class DBUtil {
             statement.execute("INSERT INTO books ('title', 'author') VALUES ('thinking in java', 'Bruce Eckel');");
             statement.execute("INSERT INTO books ('title', 'author') VALUES ('clean code', 'Robert C. Martin');");
             log.debug("table books was created and were append 8 books");
+        } catch (SQLException e) {
+            throw new RuntimeException("SQLException");
         }
     }
 
-    public ArrayList<String[]> getAllFields(Connection connection) throws SQLException {
+    /**
+     * this method gets all sample table
+     *
+     * @param connection
+     * @return
+     */
+    public ArrayList<String[]> getAllFields(Connection connection) {
 
         ResultSet resultSet;
         ArrayList<String[]> result;
@@ -53,31 +79,77 @@ public class DBUtil {
                 });
             }
             return result;
+        } catch (SQLException e) {
+            throw new RuntimeException("SQLException");
         }
     }
 
-    public void upadeLine(Connection connection, int id, String title, String author) throws SQLException {
+    /**
+     * updates sigle line by id
+     *
+     * @param connection
+     * @param id
+     * @param title
+     * @param author
+     */
+    public void upadeLine(Connection connection, int id, String title, String author) {
         try (PreparedStatement ps = connection.prepareStatement("UPDATE books SET title = ?, author = ? WHERE id=?")) {
             ps.setString(1, title);
             ps.setString(2, author);
             ps.setInt(3, id);
             ps.executeUpdate();
             log.debug(("now id:" + id + " is " + title + " " + author));
+        } catch (SQLException e) {
+            throw new RuntimeException("SQLException");
         }
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        DBUtil dbUtil = new DBUtil();
+    /**
+     * gets single line by id
+     *
+     * @param connection
+     * @param id
+     * @return
+     */
+    public String getLine(Connection connection, int id) {
 
-        Connection con = dbUtil.getCon();
-
-        ArrayList<String[]> allFields = dbUtil.getAllFields(con);
-        for (String[] strs : allFields) {
-            for (String str : strs) {
-                System.out.print(str + " ");
-            }
-            System.out.println();
+        try (Statement st = connection.createStatement()) {
+            ResultSet rs = st.executeQuery("SELECT id, title, author FROM books WHERE id=" + id);
+            String result = rs.getString("id") + " " + rs.getString("title") + " " + rs.getString("author");
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException("SQLException");
         }
+    }
 
+    /**
+     * inserts single line
+     *
+     * @param connection
+     * @param title
+     * @param author
+     */
+    public void insertLine(Connection connection, String title, String author) {
+
+        try (PreparedStatement ps = connection.prepareStatement("INSERT INTO books ('title', 'author') VALUES (?, ?);")) {
+            ps.setString(1, title);
+            ps.setString(2, author);
+            ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("SQLException");
+        }
+    }
+
+    /**
+     * @param connection drops table with name:
+     * @param table
+     */
+    public void dropTable(Connection connection, String table) {
+        try (Statement st = connection.createStatement()) {
+            st.execute(String.format("DROP TABLE IF EXISTS %s", table));
+        } catch (SQLException e) {
+            throw new RuntimeException("SQLException");
+        }
     }
 }
+
