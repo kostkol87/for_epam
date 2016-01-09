@@ -46,26 +46,6 @@ public class BookDAOImpl implements BookDAO {
         }
         return books;
     }
-//
-//    @Override
-//    public Book getStudent(int id) {
-//        Book book = new Book();
-//        ConnectionPool instance = ConnectionPool.getInstance();
-//        Connection connection = instance.getConnection();
-//        try(PreparedStatement ps = connection.prepareStatement("SELECT id, title, author FROM books WHERE id = ?")){
-//            ps.setInt(1, id);
-//            ResultSet resultSet = ps.executeQuery();
-//
-//            book.setId(resultSet.getInt(1));
-//            book.setTitle(resultSet.getString(2));
-//            book.setAuthor(resultSet.getString(3));
-//
-//            instance.free(connection);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return book;
-//    }
 
     @Override
     public boolean create(Book book) {
